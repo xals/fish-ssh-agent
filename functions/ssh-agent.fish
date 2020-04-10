@@ -12,8 +12,8 @@ function _ssh_agent_update_link -a symlink -d "Update symlink and SSH_AUTH_SOCK.
     set --export SSH_AUTH_SOCK $symlink
 end
 
-function _ssh_agent_add_identities -a identities -d "Add identities"
-    for identity in $$identities
+function _ssh_agent_add_identities --inherit-variable identities -d "Add identities"
+    for identity in $identities
         ssh-add $identity
     end
 end
