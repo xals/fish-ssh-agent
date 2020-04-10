@@ -40,3 +40,8 @@ function _ssh_agent -a symlink -d "Check agent presence and connectivity, and st
 
     _ssh_agent_update_link $symlink
 end
+
+set --local symlink "/tmp/ssh-agent-$USER.sock"
+
+_ssh_agent $symlink
+_ssh_agent_add_identities
