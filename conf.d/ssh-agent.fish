@@ -2,7 +2,7 @@
 
 # Symlink is /tmp/ssh-agent-$USER.sock
 
-set --global identities $HOME/.ssh/id_rsa
+set -q identities; or set --global identities $HOME/.ssh/id_rsa
 
 set --local uid (id -u)
 set --local symlink "/tmp/ssh-agent.sock.$uid"
