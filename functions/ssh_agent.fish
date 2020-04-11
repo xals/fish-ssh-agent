@@ -18,7 +18,7 @@ function _ssh_agent_add_identities --inherit-variable identities -d "Add identit
     end
 end
 
-function _ssh_agent -a symlink -d "Check agent presence and connectivity, and start it if necessary."
+function ssh_agent -a symlink -d "Check agent presence and connectivity, and start it if necessary."
     # Symlink seems alive, try to use it.
     if test -z "$SSH_AUTH_SOCK" -a -w $symlink
         set -x --universal SSH_AUTH_SOCK $symlink
@@ -39,4 +39,5 @@ function _ssh_agent -a symlink -d "Check agent presence and connectivity, and st
     eval (ssh-agent -c | sed '/^echo/d')
 
     _ssh_agent_update_link $symlink
+    _ssh_agent_add_identities
 end
