@@ -8,6 +8,7 @@ function _ssh_agent_update_link -a symlink -d "Update symlink and SSH_AUTH_SOCK.
     ln -sf $SSH_AUTH_SOCK $symlink
 
     # Update SSH_AUTH_SOCK
+    set --erase --global SSH_AUTH_SOCK
     set --export --universal SSH_AUTH_SOCK $symlink
 end
 
