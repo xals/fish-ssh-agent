@@ -22,7 +22,7 @@ function ssh_agent -d "Check agent presence and connectivity, and start it if ne
     end
 
     # Try to connect to the agent, test it
-    if ssh-add -l &>/dev/null
+    if ssh-add -l >/dev/null
         _ssh_agent_update_link $symlink
         return
     end
